@@ -27,6 +27,10 @@ function worker(arr) {
   let sum;
 
   // Ваш код
+  sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
 
   return sum;
 }
@@ -35,12 +39,18 @@ function makeWork(arrOfArr, func) {
   let max
 
   // Ваш кода
-  // for ...
+  max = -Infinity;
+  for (let j = 0; j < arrOfArr.length; j++) {
+    if (worker(arrOfArr[j]) > max) {
+      max = worker(arrOfArr[j]);
+    }
+  }
   
-  return max
+  return max;
 }
 
 // Задание 3
 function worker2(arr) {
   // Ваш код
+  
 }
