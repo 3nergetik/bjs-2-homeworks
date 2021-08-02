@@ -17,12 +17,12 @@ Student.prototype.addMark = function (mark) {
   }
 }
 
-Student.prototype.addMarks = function (mark) {
+Student.prototype.addMarks = function (...rest) {
 	if (this.marks === undefined) {
     this.marks = [];
-    this.marks.push(mark);
+    this.marks.push(...rest);
   } else {
-    	this.marks.push(mark);
+    	this.marks.push(...rest);
   }
 }
 
