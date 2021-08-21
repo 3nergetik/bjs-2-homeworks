@@ -43,7 +43,14 @@ function getTriangle(a,b,c) {
     try {
         return new Triangle(a,b,c)
     }
-    catch (err) {
-        return "Ошибка! Треугольник не существует"
+    catch (e) {
+        return new class Example {
+                getArea() {
+                    return 'Ошибка! Треугольник не существует';
+                }
+                getPerimeter() {
+                    return 'Ошибка! Треугольник не существует';
+                }
+            }
+        }
     }
-}
