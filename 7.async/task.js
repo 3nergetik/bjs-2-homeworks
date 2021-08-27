@@ -21,11 +21,12 @@ class AlarmClock {
         return currentDate;
     }
     start() {
-    
+        this.timerId = setInterval();
     }
     stop() {
         if (this.timerId) {
             clearInterval(this.timerId);
+            this.timerId = null;
         }
     }
     printAlarms() {
