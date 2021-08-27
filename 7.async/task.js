@@ -5,7 +5,7 @@ class AlarmClock {
     }
     addClock(time,action,id) {
     	if (id === undefined) {
-      	    throw new Error("error")
+      	    throw new Error("error");
         } else if (this.alarmCollection.some((alarm) => alarm.id === id)) {
             console.error("Будильник с таким id уже существует");
             return;
@@ -14,7 +14,7 @@ class AlarmClock {
         }
     }
     removeClock(value) {
-        this.alarmCollection.filter(alarm => alarm.id !== value);
+        this.alarmCollection = this.alarmCollection.filter(alarm => alarm.id !== value);
     }
     getCurrentFormattedTime() {
         let currentDate = new Date().toLocaleTimeString().substring(0,5);
