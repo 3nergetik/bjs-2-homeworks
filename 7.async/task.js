@@ -4,24 +4,35 @@ class AlarmClock {
         this.timerId = null;
     }
     addClock(time,action,id) {
-    	if (id === undefined) {
-      	    throw new Error("error");
-        } else if (this.alarmCollection.some((alarm) => alarm.id === id)) {
+    	if (id === undefined) throw new Error("id не указан");
+        if (this.alarmCollection.some(alarm => alarm.id === id) {
             console.error("Будильник с таким id уже существует");
             return;
-        } else {
-    	    this.alarmCollection.push({time: time,action: action,id: id});
-        }
+        } 
+    	this.alarmCollection.push({time: time,action: action,id: id});
     }
     removeClock(value) {
-        this.alarmCollection = this.alarmCollection.filter(alarm => alarm.id !== value);
+        let i = this.alarmCollection.findIndex(item => item.id === id)
+        if (i > -1) {
+            this.alarmCollection.splice(i,1);
+            return true;
+        }
+        return false;
     }
     getCurrentFormattedTime() {
         let currentDate = new Date().toLocaleTimeString().substring(0,5);
         return currentDate;
     }
     start() {
-        this.timerId = setInterval();
+        let checkAlarm = checkClock.bind(this);
+        function checkClock(alarm) {
+            if (alarm.time === this.getCurrentFormattedTime()) {
+                this.action();
+            }
+        }
+        if (!this.timerId) {
+            this.timerId = setInterval(() => this.alarmCollection.forEach(item => checkAlarm(item)),1000)
+        }
     }
     stop() {
         if (this.timerId) {
