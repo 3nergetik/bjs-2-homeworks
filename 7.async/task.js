@@ -38,7 +38,7 @@ class AlarmClock {
         let checkAlarm = checkClock.bind(this);
         function checkClock(alarm) {
             if (alarm.time === this.getCurrentFormattedTime()) {
-                this.action();
+                alarm.action();
             }
         }
         if (!this.timerId) {
