@@ -20,8 +20,7 @@ class AlarmClock {
         return false;
     }
     getCurrentFormattedTime() {
-        let currentDate = new Date().toLocaleTimeString().substring(0,5);
-        return currentDate;
+        return new Date().toLocaleTimeString().substring(0,5);
     }
     start() {
         let checkAlarm = checkClock.bind(this);
